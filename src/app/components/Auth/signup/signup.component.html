@@ -1,0 +1,35 @@
+<div class="card trans-card">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Sign Up Here</h3>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                <label for="username">Username</label>
+                <input type="text" placeholder="Enter your username" id="username" formControlName="fullName">
+                <div class="error-feedback" *ngIf="hasDisplayableError('fullName') && form.controls['fullName'].hasError('required')">Please enter your full name.</div>
+
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter your email" id="email" formControlName="email">
+
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter your password" id="password" formControlName="password">
+
+                <label for="password">Confirm Password</label>
+                <input type="password" placeholder="Re-enter your password" id="confirmpassword"
+                    formControlName="confirmPassword">
+
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="button">
+                <div class="red"><i class="bi bi-google"></i> Google</div>
+                <div class="blue"><i class="bi bi-facebook"></i> Facebook</div>
+            </div>
+
+
+            <p class="toggle-text">
+                Already have an account? <a class="pointer" routerLink="/login">Log in</a>
+            </p>
+        </div>
+    </div>
+
+</div>

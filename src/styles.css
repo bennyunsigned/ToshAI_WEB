@@ -1,0 +1,223 @@
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+.card {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 360px;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.card h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 2px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+input {
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #23a2f6;
+    box-shadow: 0 0 10px #23a2f6;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 5px;
+    background-color: #23a2f6;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #1845ad;
+    box-shadow: 0 0 15px #23a2f6;
+}
+
+::placeholder{
+    color: black;
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button .red, .button .blue, .button .green {
+    width: 48%;
+    padding: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.button .red:hover {
+    background-color: #db4437;
+}
+
+.button .blue:hover {
+    background-color: #4267b2;
+}
+
+.button .green:hover {
+    background-color: rgb(42, 163, 42);
+}
+
+.button i {
+    margin-right: 8px;
+}
+
+.toggle-text {
+    margin-top: 20px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.toggle-text a {
+    color: #23a2f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.toggle-text a:hover {
+    text-decoration: underline;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.error-feedback{
+  font-size:0.9rem;
+  color: crimson;
+  margin:0.3rem !important;
+  margin-top:0.1rem !important;
+}
+
+/* page-loader.component.css */
+/* page-loader.component.css */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Light semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .loader {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: relative;
+    animation: spin 2s linear infinite;
+  }
+  
+  .loader:before,
+  .loader:after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: transparent;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .loader:before {
+    background: conic-gradient(
+      red, yellow, green, blue, purple, red
+    );
+    top: 0;
+    left: 0;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loader:after {
+    background: conic-gradient(
+      cyan, magenta, yellow, cyan, magenta
+    );
+    top: 50%;
+    left: 50%;
+    animation: spin 1s linear infinite reverse;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0.8);
+    }
+  }
+  
