@@ -143,9 +143,10 @@ button:hover {
 
 .error-feedback{
   font-size:0.9rem;
-  color: crimson;
-  margin:0.3rem !important;
-  margin-top:0.1rem !important;
+  color: yellow;
+  position: relative;
+  top: -13px;
+  text-align: left;
 }
 
 /* page-loader.component.css */
