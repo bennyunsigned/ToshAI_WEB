@@ -1,0 +1,94 @@
+<div class="wrapper d-flex align-items-stretch">
+  <nav id="sidebar" class="">
+    <div class="p-4 pt-4">
+      <!-- New rounded image at the top of the sidebar -->
+      <img src="images/demo-user.jpg" class="img logo rounded-circle mb-5 sidebar-top-image" alt="Top Image">
+      <div class="fullname">
+        <span style="font-size: larger;color:gold">Ashutosh Mishra</span>
+        <span style="font-size: small;color: burlywood;">bennyunsigned&#64;gmail.com</span>
+      </div>
+      <ul class="list-unstyled components mb-5">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li class="">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+            (click)="toggleSidebarSubMenu($event)">LLMs</a>
+          <ul class="collapse list-unstyled submenu custom-submenu" id="homeSubmenu">
+            <li><a>GPT</a></li>
+            <li><a>Image Gen</a></li>
+            <li><a>Video Gen</a></li>
+          </ul>
+        </li>        
+        <li class="">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+            (click)="toggleSidebarSubMenu($event)">NEWS</a>
+          <ul class="collapse list-unstyled submenu custom-submenu" id="homeSubmenu">            
+            <li><a>Shorts/Reels</a></li>
+            <li><a>Youtube Videos</a></li>
+          </ul>
+        </li>          
+        
+      </ul>
+      <div class="footer" style="position: absolute; bottom: 0; width: 100%;">
+        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;
+          <script>document.write(new Date().getFullYear());</script><i
+            class="icon-heart" aria-hidden="true"></i><a href="https://toshai.com"
+            target="_blank">toshai.com</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content" class="p-2">
+    <nav class="navbar navbar-expand-lg shadow-sm">
+      <div class="container-fluid" >
+        <button type="button" id="sidebarCollapse" class="btn btn-primary toggler-icon active" (click)="toggleSidebar()"
+          style="font-size: 0.8rem;">
+          <i class="fa fa-bars"></i>
+          <span class="sr-only"></span>
+        </button>
+        <div class="header-container">
+          <!-- Notification Dropdown -->
+          <!-- <div class="menu-container">
+            <div class="menu-toggler" (click)="toggleDropdown('notification')">
+              <i class="fa fa-bell"></i>
+            </div>
+            <div class="menu menu-noti" *ngIf="isNotificationDropDownOpen" style="width: 400px;color:white;height: 300px;overflow-y: scroll;">
+              <div class="menu-header">Messages</div>
+              <div class="menu-item message" *ngFor="let msg of messages" style="border-bottom:1px solid white">                
+                <div class="message-content">
+                  <div class="sender">{{ msg.sender }}</div>
+                  <div class="text-preview">{{ msg.text }}</div>
+                  <div class="time">{{ msg.time }}</div>                  
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="menu-container">
+            <div class="menu-toggler" (click)="toggleDarkMode()" >
+              <i class="bi bi-cloud-moon"></i>
+            </div>
+           
+        </div>
+        
+          <!-- Profile Dropdown -->
+          <div class="menu-container">
+            <div class="menu-toggler" (click)="toggleDropdown('profile')" >
+              <i class="bi bi-person-circle"></i>
+            </div>
+            <div class="menu" *ngIf="isProfileDropdownOpen">
+              <div class="menu-item">Profile</div>
+              <div class="menu-item">Settings</div>
+              <div class="menu-item">Sign out</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+   
+    <router-outlet></router-outlet>
+  </div>
+</div>

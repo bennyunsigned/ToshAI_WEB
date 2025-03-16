@@ -35,7 +35,7 @@ export class LoginComponent {
       await this.authService.signin(this.form.value).subscribe({
         next:(res:any)=>{
           localStorage.setItem('token',res.token);
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/admin/dashboard');
           this.toastr.success('Logged in successfully!','Success',{
             timeOut:3000
           });

@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { PageLoaderComponent } from './components/page-loader/page-loader.component';
-
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 @Component({
   selector: 'app-root',
-  imports: [AuthLayoutComponent, PageLoaderComponent],
+  imports: [AuthLayoutComponent,
+     PageLoaderComponent
+    ],
   templateUrl: './app.component.html',
   styles: [],
 })
@@ -13,20 +15,27 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'WEB_TOSHAI';
   @ViewChild(PageLoaderComponent) loader!: PageLoaderComponent;
 
-  // ngOnInit is typically for initialization logic before view rendering
+  constructor(private router: Router) {}
+
+  
   ngOnInit() {
-    // You can do other initialization here, but not rely on @ViewChild here
-    console.log('AppComponent initialized');
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+      document.body.classList.add('dark-mode');
+    }
   }
 
-  // ngAfterViewInit is called after the view has been initialized
-  ngAfterViewInit() {
-    // Now, the @ViewChild reference will be available
-    this.loader.showLoader();
-
-    // You can simulate hiding the loader after some operation or delay
-    setTimeout(() => {
-      this.loader.hideLoader();
-    }, 2000); // Simulating a delay of 2 seconds
+  
+  ngAfterViewInit() {    
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.loader.showLoader();
+      } else if (event instanceof NavigationEnd) {
+        setTimeout(() => {
+          this.loader.hideLoader();
+        }, 1000); 
+      }
+    });
   }
+
+  
 }

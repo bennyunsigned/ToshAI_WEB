@@ -1,14 +1,12 @@
 <style>
     /* 
   Mobile  */
-    @media only screen and (max-width: 600px) {
-
-    }
+    @media only screen and (max-width: 600px) {}
 
     /* Tablet */
     @media only screen and (min-width: 600px) {
         .signupCard {
-            min-width: 600px;
+            max-width: 500px;
 
         }
     }
@@ -16,83 +14,88 @@
     /* Desktop */
     @media only screen and (min-width: 768px) {
         .signupCard {
-            min-width: 600px;
+            max-width: 500px;
 
         }
     }
-</style>
-<div class="card trans-card signupCard">
-    <div class="row">
-        <div class="col-sm-12">
-            <h3>Sign Up Here</h3>
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <label for="username">Full Name</label>
-                        <input type="text" placeholder="Enter your Full Name" id="fullName" formControlName="fullName">
-                        <div class="error-feedback" *ngIf="hasDisplayableError('fullName')">
-                            <ng-container [ngSwitch]="form.controls['fullName'].errors | firstkey">
-                                <div *ngSwitchCase="'required'">Please enter your full name.</div>
-                            </ng-container>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <label for="email">Email</label>
-                        <input type="email" placeholder="Enter your email" id="email" formControlName="email">
-                        <div class="error-feedback" *ngIf="hasDisplayableError('email')">
-                            <ng-container [ngSwitch]="form.controls['email'].errors | firstkey">
-                                <div *ngSwitchCase="'required'">Please enter your email.</div>
-                                <div *ngSwitchCase="'email'">Please enter a valid email.</div>
-                            </ng-container>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <label for="phone">Whatsapp No.</label>
-                        <input type="text" placeholder="Enter your Whatsapp No." id="phoneNumber"
-                            formControlName="phoneNumber">
-                        <div class="error-feedback" *ngIf="hasDisplayableError('phoneNumber')">
-                            <ng-container [ngSwitch]="form.controls['phoneNumber'].errors | firstkey">
-                                <div *ngSwitchCase="'required'">Please enter your Whatsapp No.</div>
-                                <div *ngSwitchCase="'minlength'">Whatsapp No. must be 10 digits long.</div>
-                                <div *ngSwitchCase="'maxlength'">Whatsapp No. must be 10 digits long.</div>
-                                <div *ngSwitchCase="'pattern'">Whatsapp No. must be only digits.</div>
-                            </ng-container>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <label for="password">Password</label>
-                        <input type="password" placeholder="Enter your password" id="password"
-                            formControlName="password">
-                        <div class="error-feedback" *ngIf="hasDisplayableError('password')">
-                            <ng-container [ngSwitch]="form.controls['password'].errors | firstkey">
-                                <div *ngSwitchCase="'required'">Please enter your password.</div>
-                                <div *ngSwitchCase="'minlength'">Password must be at least 6 characters long.</div>
-                                <div *ngSwitchCase="'pattern'">Password must contain at least one special character.
-                                </div>
-                            </ng-container>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <label for="password">Confirm Password</label>
-                        <input type="password" placeholder="Re-enter your password" id="confirmpassword"
-                            formControlName="confirmPassword">
-                        <div class="error-feedback" *ngIf="hasDisplayableError('confirmPassword')">
-                            <ng-container [ngSwitch]="form.controls['confirmPassword'].errors | firstkey">
-                                <div *ngSwitchCase="'passwordMismatch'">Passwords do not match.</div>
-                            </ng-container>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit">Sign Up</button>
-            </form>
-            <div class="button">
-                <div class="red"><i class="bi bi-google"></i> Google</div>
-                <div class="blue"><i class="bi bi-facebook"></i> Facebook</div>
-            </div>
 
-            <p class="toggle-text">
-                Already have an account? <a class="pointer" routerLink="/login">Log in</a>
-            </p>
+</style>
+
+<div class="container">
+    <div class="card signupCard">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Sign Up Here</h3>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <label for="username">Full Name</label>
+                            <input type="text" placeholder="Enter your Full Name" id="fullName"
+                                formControlName="fullName">
+                            <div class="error-feedback" *ngIf="hasDisplayableError('fullName')">
+                                <ng-container [ngSwitch]="form.controls['fullName'].errors | firstkey">
+                                    <div *ngSwitchCase="'required'">Please enter your full name.</div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Enter your email" id="email" formControlName="email">
+                            <div class="error-feedback" *ngIf="hasDisplayableError('email')">
+                                <ng-container [ngSwitch]="form.controls['email'].errors | firstkey">
+                                    <div *ngSwitchCase="'required'">Please enter your email.</div>
+                                    <div *ngSwitchCase="'email'">Please enter a valid email.</div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="phone">Whatsapp No.</label>
+                            <input type="text" placeholder="Enter your Whatsapp No." id="phoneNumber"
+                                formControlName="phoneNumber">
+                            <div class="error-feedback" *ngIf="hasDisplayableError('phoneNumber')">
+                                <ng-container [ngSwitch]="form.controls['phoneNumber'].errors | firstkey">
+                                    <div *ngSwitchCase="'required'">Please enter your Whatsapp No.</div>
+                                    <div *ngSwitchCase="'minlength'">Whatsapp No. must be 10 digits long.</div>
+                                    <div *ngSwitchCase="'maxlength'">Whatsapp No. must be 10 digits long.</div>
+                                    <div *ngSwitchCase="'pattern'">Whatsapp No. must be only digits.</div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="password">Password</label>
+                            <input type="password" placeholder="Enter your password" id="password"
+                                formControlName="password">
+                            <div class="error-feedback" *ngIf="hasDisplayableError('password')">
+                                <ng-container [ngSwitch]="form.controls['password'].errors | firstkey">
+                                    <div *ngSwitchCase="'required'">Please enter your password.</div>
+                                    <div *ngSwitchCase="'minlength'">Password must be at least 6 characters long.</div>
+                                    <div *ngSwitchCase="'pattern'">Password must contain at least one special character.
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="password">Confirm Password</label>
+                            <input type="password" placeholder="Re-enter your password" id="confirmpassword"
+                                formControlName="confirmPassword">
+                            <div class="error-feedback" *ngIf="hasDisplayableError('confirmPassword')">
+                                <ng-container [ngSwitch]="form.controls['confirmPassword'].errors | firstkey">
+                                    <div *ngSwitchCase="'passwordMismatch'">Passwords do not match.</div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <div class="button">
+                    <div class="red"><i class="bi bi-google"></i> Google</div>
+                    <div class="blue"><i class="bi bi-facebook"></i> Facebook</div>
+                </div>
+
+                <p class="toggle-text">
+                    Already have an account? <a class="pointer" routerLink="/login">Log in</a>
+                </p>
+            </div>
         </div>
     </div>
 </div>
