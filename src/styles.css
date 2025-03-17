@@ -45,8 +45,10 @@ body.dark-mode {
     background-color: var(--background-color-light);
     border: 2px solid var(--border-color-light);
     box-shadow: 0 4px 30px var(--shadow-color-light);
-    z-index: 1; /* Ensure this is lower than the .menu */
-    position: relative; /* Add this line */
+    z-index: 1;
+    /* Ensure this is lower than the .menu */
+    position: relative;
+    /* Add this line */
     transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -135,7 +137,9 @@ button:hover {
     margin-top: 20px;
 }
 
-.button .red, .button .blue, .button .green {
+.button .red,
+.button .blue,
+.button .green {
     width: 48%;
     padding: 5px;
     text-align: center;
@@ -146,7 +150,9 @@ button:hover {
     transition: all 0.3s ease-in-out;
 }
 
-body.dark-mode .button .red, body.dark-mode .button .blue, body.dark-mode .button .green {
+body.dark-mode .button .red,
+body.dark-mode .button .blue,
+body.dark-mode .button .green {
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);
 }
@@ -254,6 +260,7 @@ body.dark-mode .button .red, body.dark-mode .button .blue, body.dark-mode .butto
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -263,9 +270,11 @@ body.dark-mode .button .red, body.dark-mode .button .blue, body.dark-mode .butto
     0% {
         transform: scale(0.8);
     }
+
     50% {
         transform: scale(1);
     }
+
     100% {
         transform: scale(0.8);
     }
@@ -343,13 +352,15 @@ body.dark-mode #sidebar ul li a:hover {
     background: var(--text-color-light);
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
     color: var(--text-color-light);
     background: #6d7fcc;
     border-radius: 15px;
 }
 
-body.dark-mode #sidebar ul li.active > a, body.dark-mode a[aria-expanded="true"] {
+body.dark-mode #sidebar ul li.active>a,
+body.dark-mode a[aria-expanded="true"] {
     color: var(--text-color-dark);
 }
 
@@ -364,9 +375,11 @@ body.dark-mode #sidebar ul li.active > a, body.dark-mode a[aria-expanded="true"]
     #sidebar {
         margin-left: -250px;
     }
+
     #sidebar.active {
         margin-left: 0;
     }
+
     #sidebarCollapse span {
         display: none;
     }
@@ -392,7 +405,7 @@ body.dark-mode #sidebar ul li.active > a, body.dark-mode a[aria-expanded="true"]
     height: 35px;
     width: 35px;
     position: relative;
-    top: -3px;
+    top: -4px;
 }
 
 .navbar {
@@ -488,7 +501,8 @@ body.dark-mode .nav-link {
     color: var(--text-color-light);
     padding: 10px;
     border-radius: 5px;
-    z-index: 1001; /* Ensure this is higher than the .card */
+    z-index: 1001;
+    /* Ensure this is higher than the .card */
     min-width: 200px;
     display: flex;
     flex-direction: column;
@@ -509,7 +523,7 @@ body.dark-mode .menu {
 }
 
 .menu-item:hover {
-    
+
     transform: scale(1.05);
 }
 
@@ -540,7 +554,8 @@ body.dark-mode .menu {
         height: 35px;
         width: 35px;
         position: relative;
-        top: -15px;
+        top: 2px;
+
     }
 
     .menu-noti {
@@ -629,7 +644,7 @@ body.dark-mode .nav-link.active {
     border-bottom: 2px solid #dee2e6;
 }
 
-.custom-table tbody + tbody {
+.custom-table tbody+tbody {
     border-top: 2px solid #dee2e6;
 }
 
@@ -812,45 +827,132 @@ body.dark-mode input[type="date"] {
     color: var(--text-color-dark);
 }
 
-/* Table Design */
+/* Base Table Styling */
 .table {
     width: 100%;
-    margin-bottom: 1rem;
-    color: var(--text-color-light);
     border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--shadow-color-light);
 }
 
-.table th, .table td {
-    padding: .75rem;
-    vertical-align: top;
-    border-top: 1px solid var(--border-color-light);
+/* Light Mode Table */
+body:not(.dark-mode) .table {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    border: 1px solid var(--border-color-light);
 }
 
-.table thead th {
-    vertical-align: bottom;
+body:not(.dark-mode) .table th {
+    background-color: var(--primary-color);
+    color: var(--text-color-dark);
     border-bottom: 2px solid var(--border-color-light);
 }
 
-.table tbody + tbody {
-    border-top: 2px solid var(--border-color-light);
+body:not(.dark-mode) .table td {
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color-light);
 }
 
-/* Dark Mode Table Design */
+body:not(.dark-mode) .table tbody tr:nth-child(even) {
+    background-color: var(--hover-bg-color-light);
+}
+
+/* Dark Mode Table */
 body.dark-mode .table {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color-light);
+    box-shadow: 0 4px 6px var(--shadow-color-dark);
+}
+
+body.dark-mode .table th {
+    background-color: var(--primary-color);
+    color: var(--text-color-dark);
+    border-bottom: 2px solid var(--border-color-light);
+}
+
+body.dark-mode .table td {
+    background-color: var(--sidebar-background-dark);
+    border: 1px solid var(--border-color-light);
     color: var(--text-color-dark);
 }
 
-body.dark-mode .table th, body.dark-mode .table td {
-    border-color: var(--border-color-dark);
+body.dark-mode .table tbody tr:nth-child(even) {
+    background-color: var(--hover-bg-color-dark);
 }
 
-body.dark-mode .table thead th {
-    border-bottom: 2px solid var(--border-color-dark);
+/* Table Hover Effect */
+.table tbody tr:hover {
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color-dark) !important;
+    transition: background 0.3s ease-in-out;
 }
 
-body.dark-mode .table tbody + tbody {
-    border-top: 2px solid var(--border-color-dark);
+/* Table Head Styling */
+.table thead th {
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
 }
+
+/* Table Cell Styling */
+.table td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Responsive Table - Cards View for Mobile */
+@media screen and (max-width: 768px) {
+
+    .table,
+    .table thead,
+    .table tbody,
+    .table th,
+    .table td,
+    .table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .table thead {
+        display: none;
+        /* Hide table headers */
+    }
+
+    .table tbody tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--border-color-light);
+        background: var(--background-color-light);
+        box-shadow: 0 2px 4px var(--shadow-color-light);
+        margin-bottom: 12px;
+        border-radius: 6px;
+        padding: 10px;
+    }
+
+    body.dark-mode .table tbody tr {
+        background: var(--sidebar-background-dark);
+        box-shadow: 0 2px 4px var(--shadow-color-dark);
+        border: 1px solid var(--border-color-light);
+    }
+
+    .table td {
+        display: flex;
+        justify-content: flex-start;
+        padding: 8px;
+        border: none;
+        font-size: 14px;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: capitalize;
+        color: var(--primary-color);
+    }
+}
+
 .custom-radio {
     appearance: none;
     width: 18px;
@@ -861,9 +963,11 @@ body.dark-mode .table tbody + tbody {
     position: relative;
     cursor: pointer;
 }
+
 .custom-radio:checked {
     background-color: var(--primary-color);
 }
+
 .custom-radio:checked::after {
     content: "";
     width: 10px;
@@ -887,9 +991,11 @@ body.dark-mode .table tbody + tbody {
     position: relative;
     cursor: pointer;
 }
+
 .custom-checkbox:checked {
     background-color: var(--secondary-color);
 }
+
 .custom-checkbox:checked::after {
     content: "✔";
     color: var(--background-color-light);
@@ -906,17 +1012,224 @@ body.dark-mode .table tbody + tbody {
     width: 100%;
     border-collapse: collapse;
 }
-.custom-table th, .custom-table td {
+
+.custom-table th,
+.custom-table td {
     text-align: center;
     font-size: 14px;
     padding: 8px;
     border: 1px solid var(--border-color-light);
 }
+
 .custom-table th {
     background-color: var(--primary-color);
     color: var(--text-color-dark);
     font-weight: bold;
 }
+
 .custom-table tbody tr:hover {
     background-color: var(--hover-bg-color-light);
+}
+
+@media only screen and (max-width: 600px) {}
+
+/* Tablet */
+@media only screen and (min-width: 600px) {
+    .signupCard {
+        max-width: 600px;
+
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 768px) {
+    .signupCard {
+        max-width: 600px;
+
+    }
+
+    .card-footer {
+        padding: 10px 250px;
+    }
+}
+
+/* Mobile screen hide class */
+.mobile-only {
+    display: none;
+    /* Hidden by default */
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-only {
+        display: block;
+        /* Visible on mobile */
+        white-space: nowrap;
+    }
+}
+
+.main-content {
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: fit-content;
+}
+
+.action-buttons a {
+    white-space: nowrap;
+}
+
+.pagination {
+       padding: 5px;
+    border-radius: 8px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.pagination span {
+    font-size: 16px;
+    color: var(--text-color-light);
+    position: relative;
+    top: 6px;
+    margin-left: 10px;
+}
+
+/* Common button styles */
+.pagination button {
+    padding: 8px 14px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 3px 6px var(--shadow-color-light);
+}
+
+/* "First" and "Last" buttons - Unique Style */
+.pagination button:first-child,
+.pagination button:last-child {
+    background: linear-gradient(135deg, var(--danger-color), var(--primary-color));
+    color: var(--background-color-light);
+}
+
+.pagination button:first-child:hover,
+.pagination button:last-child:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--danger-color));
+    transform: scale(1.1);
+}
+
+/* "Previous" and "Next" buttons - Different Style */
+.pagination button:nth-child(2),
+.pagination button:nth-child(3) {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color-light);
+}
+
+.pagination button:nth-child(2):hover,
+.pagination button:nth-child(3):hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    transform: scale(1.05);
+}
+
+/* Disabled buttons */
+.pagination button:disabled {
+    background: var(--border-color-light);
+    color: var(--text-color-dark);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Dark Mode */
+
+
+.dark-mode .pagination span {
+    color: var(--text-color-dark);
+}
+
+.dark-mode .pagination button {
+    box-shadow: 0px 3px 6px var(--shadow-color-dark);
+}
+
+.dark-mode .pagination button:first-child,
+.dark-mode .pagination button:last-child {
+    background: linear-gradient(135deg, var(--danger-color), var(--primary-color));
+}
+
+.dark-mode .pagination button:first-child:hover,
+.dark-mode .pagination button:last-child:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--danger-color));
+}
+
+.dark-mode .pagination button:nth-child(2),
+.dark-mode .pagination button:nth-child(3) {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.dark-mode .pagination button:nth-child(2):hover,
+.dark-mode .pagination button:nth-child(3):hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+.dark-mode .pagination button:disabled {
+    background: var(--border-color-dark);
+    color: var(--text-color-dark);
+}
+
+
+/* Flex alignment */
+.d-flex.justify-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* Ultra-Thin Scrollbar */
+::-webkit-scrollbar {
+    width: 4px; /* Extra thin for a sleek look */
+    height: 10px;
+}
+
+/* Light Mode Scrollbar */
+::-webkit-scrollbar-track {
+    background: var(--background-color-light);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color-light);
+    border-radius: 10px;
+    opacity: 0.7;
+    transition: background 0.3s ease-in-out, opacity 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color-light);
+    opacity: 1;
+}
+
+/* Dark Mode Scrollbar */
+body.dark-mode ::-webkit-scrollbar-track {
+    background: var(--background-color-dark);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: var(--border-color-dark);
+    opacity: 0.5;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color-dark);
+    opacity: 0.8;
 }

@@ -17,23 +17,22 @@
             <li><a>Image Gen</a></li>
             <li><a>Video Gen</a></li>
           </ul>
-        </li>        
+        </li>
         <li class="">
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
             (click)="toggleSidebarSubMenu($event)">NEWS</a>
-          <ul class="collapse list-unstyled submenu custom-submenu" id="homeSubmenu">            
+          <ul class="collapse list-unstyled submenu custom-submenu" id="homeSubmenu">
             <li><a>Shorts/Reels</a></li>
             <li><a>Youtube Videos</a></li>
           </ul>
-        </li>          
-        
+        </li>
+
       </ul>
       <div class="footer" style="position: absolute; bottom: 0; width: 100%;">
         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           Copyright &copy;
-          <script>document.write(new Date().getFullYear());</script><i
-            class="icon-heart" aria-hidden="true"></i><a href="https://toshai.com"
-            target="_blank">toshai.com</a>
+          <script>document.write(new Date().getFullYear());</script><i class="icon-heart" aria-hidden="true"></i><a
+            href="https://toshai.com" target="_blank">toshai.com</a>
           <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         </p>
       </div>
@@ -43,13 +42,9 @@
   <!-- Page Content  -->
   <div id="content" class="p-2">
     <nav class="navbar navbar-expand-lg shadow-sm">
-      <div class="container-fluid" >
-        <button type="button" id="sidebarCollapse" class="btn btn-primary toggler-icon active" (click)="toggleSidebar()"
-          style="font-size: 0.8rem;">
-          <i class="fa fa-bars"></i>
-          <span class="sr-only"></span>
-        </button>
-        <div class="header-container">
+      <div class="container-fluid" style="display: flex;justify-content: space-between;">
+
+        <div class="left-container" style="display: flex;">
           <!-- Notification Dropdown -->
           <!-- <div class="menu-container">
             <div class="menu-toggler" (click)="toggleDropdown('notification')">
@@ -67,15 +62,24 @@
             </div>
           </div> -->
           <div class="menu-container">
-            <div class="menu-toggler" (click)="toggleDarkMode()" >
+            <button type="button" id="sidebarCollapse" class="btn btn-primary toggler-icon active"
+              (click)="toggleSidebar()" style="font-size: 0.8rem;">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only"></span>
+            </button>
+          </div>
+          
+        </div>
+        <div class="right-container" style="display: flex;">
+          <div class="menu-container">
+            <div class="menu-toggler" (click)="toggleDarkMode()">
               <i class="bi bi-cloud-moon"></i>
             </div>
-           
-        </div>
-        
+          </div>
+
           <!-- Profile Dropdown -->
           <div class="menu-container">
-            <div class="menu-toggler" (click)="toggleDropdown('profile')" >
+            <div class="menu-toggler" (click)="toggleDropdown('profile')">
               <i class="bi bi-person-circle"></i>
             </div>
             <div class="menu" *ngIf="isProfileDropdownOpen">
@@ -87,8 +91,10 @@
         </div>
       </div>
     </nav>
-    
-   
-    <router-outlet></router-outlet>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 </div>

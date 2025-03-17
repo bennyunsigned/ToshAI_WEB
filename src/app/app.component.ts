@@ -6,8 +6,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 @Component({
   selector: 'app-root',
   imports: [AuthLayoutComponent,
-     PageLoaderComponent
-    ],
+    PageLoaderComponent
+  ],
   templateUrl: './app.component.html',
   styles: [],
 })
@@ -15,27 +15,39 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'WEB_TOSHAI';
   @ViewChild(PageLoaderComponent) loader!: PageLoaderComponent;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  
+
   ngOnInit() {
-    if (localStorage.getItem('dark-mode') === 'enabled') {
-      document.body.classList.add('dark-mode');
-    }
+    // Enable the dark mode for Login and Signup Component
+    document.body.classList.add('dark-mode');
+
   }
 
-  
-  ngAfterViewInit() {    
+
+  ngAfterViewInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.loader.showLoader();
       } else if (event instanceof NavigationEnd) {
         setTimeout(() => {
           this.loader.hideLoader();
-        }, 1000); 
+        }, 1000);
       }
     });
   }
 
-  
+  toggleDarkMode(): void {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+
+    // Save the current mode in local storage
+    if (body.classList.contains('dark-mode')) {
+      localStorage.setItem('dark-mode', 'enabled');
+    } else {
+      localStorage.setItem('dark-mode', 'disabled');
+    }
+  }
+
+
 }

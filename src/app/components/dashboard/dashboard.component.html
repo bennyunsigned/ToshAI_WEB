@@ -1,19 +1,23 @@
 <ul class="nav nav-tabs custom-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-        <button (click)="changeActiveTab('Add')" [ngClass]="{'active': ActiveTab === 'Add'}" class="nav-link custom-tab" id="home-tab" type="button" role="tab" aria-controls="home" aria-selected="true">
+        <button (click)="changeActiveTab('Add')" [ngClass]="{'active': ActiveTab === 'Add'}" class="nav-link custom-tab"
+            id="home-tab" type="button" role="tab" aria-controls="home" aria-selected="true">
             <i class="bi bi-plus-circle"></i> Add
         </button>
     </li>
     <li class="nav-item" role="presentation">
-        <button (click)="changeActiveTab('View')" [ngClass]="{'active': ActiveTab === 'View'}" class="nav-link custom-tab" id="profile-tab" type="button" role="tab" aria-controls="profile" aria-selected="false">
+        <button (click)="changeActiveTab('View')" [ngClass]="{'active': ActiveTab === 'View'}"
+            class="nav-link custom-tab" id="profile-tab" type="button" role="tab" aria-controls="profile"
+            aria-selected="false">
             <i class="bi bi-eye"></i> View
         </button>
     </li>
 </ul>
 
-<div class="tab-content p-3" id="myTabContent">
+<div class="tab-content pt-2" id="myTabContent">
     <!-- Add Form -->
-    <div *ngIf="ActiveTab=='Add'" [ngClass]="{'show active': ActiveTab === 'Add'}" class="tab-pane fade" id="home" role="tabpanel">
+    <div *ngIf="ActiveTab=='Add'" [ngClass]="{'show active': ActiveTab === 'Add'}" class="tab-pane fade" id="home"
+        role="tabpanel">
         <div class="card shadow-lg inner-card">
             <div class="card-header text-white bg-primary d-flex justify-content-between align-items-center">
                 <span>Fill the Form</span>
@@ -34,7 +38,7 @@
                                 <option value="2">Option 2</option>
                                 <option value="3">Option 3</option>
                             </select>
-                        </div>                        
+                        </div>
                         <div class="col-md-4 mb-3">
                             <label for="datePicker" class="form-label fw-bold">Date Picker</label>
                             <input type="date" class="form-control" id="datePicker">
@@ -49,40 +53,69 @@
                     </div>
                 </form>
             </div>
-            <div class="card-footer d-flex flex-col justify-end">
-                <button class="btn btn-success btn-sm"><i class="bi bi-save"></i> Save</button>
-                <button class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i> Cancel</button>
+            <div class="card-footer">
+                <div class="d-flex flex-col justify-between">
+                    <button class="btn btn-primary btn-sm"><i class="bi bi-save"></i> Save</button>
+                    <button class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i> Cancel</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- View Table -->
-    <div *ngIf="ActiveTab=='View'" [ngClass]="{'show active': ActiveTab === 'View'}" class="tab-pane fade" id="profile" role="tabpanel">
+    <div *ngIf="ActiveTab=='View'" [ngClass]="{'show active': ActiveTab === 'View'}" class="tab-pane fade" id="profile"
+        role="tabpanel">
         <div class="table-responsive">
-            <table class="table table-hover custom-table">
-                <thead class="table-dark">
+           <div class="row mt-2">
+            <div class="col-md-8"></div>
+                <div class="col-md-4 text-right">
+                    <input type="text"  class="form-control mb-2" [(ngModel)]="searchText" (input)="filterData()"
+                placeholder="Search..." />
+                </div>
+           </div>
+            
+
+            <table class="table">
+                <thead>
                     <tr>
-                        <th>Column 1</th>
-                        <th>Column 2</th>
-                        <th>Column 3</th>
-                        <th>Column 4</th>
+                        <th (click)="sortData('name')">Name</th>
+                        <th (click)="sortData('email')">Email</th>
+                        <th (click)="sortData('mobile')">Mobile</th>
+                        <th (click)="sortData('gender')">Gender</th>
+                        <th (click)="sortData('address')">Address</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Data 1</td>
-                        <td>Data 2</td>
-                        <td>Data 3</td>
-                        <td>Data 4</td>
-                        <td>
-                            <button class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i> Edit</button>
-                            <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Delete</button>
+                    <tr *ngFor="let user of paginatedData; let i = index">
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.mobile }}</td>
+                        <td>{{ user.gender }}</td>
+                        <td>{{ user.address }}</td>
+                        <td class="action-buttons">
+                            <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i> Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Delete</a>
                         </td>
                     </tr>
-                    <!-- Add more rows dynamically -->
                 </tbody>
             </table>
+
+            <div class="pagination">
+                <div class="row w-100">
+                    <div class="col-md-10 col-sm-12">
+                        <span> Page {{ currentPage }} of {{ totalPages }} </span>
+                    </div>
+                    <div class="col-md-2 col-sm-12 d-flex justify-end">
+                        <button (click)="goToPage(1)" [disabled]="currentPage === 1">First</button>
+                        <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Prev</button>
+
+                        <button (click)="goToPage(currentPage + 1)"
+                            [disabled]="currentPage === totalPages">Next</button>
+                        <button (click)="goToPage(totalPages)" [disabled]="currentPage === totalPages">Last</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
